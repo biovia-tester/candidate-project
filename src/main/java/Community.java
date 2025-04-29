@@ -12,10 +12,7 @@ public class Community {
     WebDriver driver;
 
     By root = By.className("community-context");
-    By contentListContainer = By.className("community-contents-list-container");
-
     By post = By.className("content-summary-view");
-
     By scrollContainer = By.className("contents-feed-scroller");
 
     public Community(WebDriver driver) {

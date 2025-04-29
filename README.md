@@ -13,7 +13,7 @@ does the following:
 
 1. Opens the 3DExperience Platform in a browser and signs into the User Communities section of the application.
 2. Wait for the first couple of posts to load.
-3. Scroll the browser downward until at least 20 posts have loaded in the forum.
+3. Keeping scrolling the browser downward until at least 20 posts have loaded in the forum.
 4. Verify that the title of each post contains text (is not empty).
 5. Write the titles of all the posts that are loaded to a text file called "titles.txt"
 

@@ -40,26 +40,22 @@ class BioviaCommunitiesTest {
 
     @Test
     void scrollTest() {
+        // 1. Opens the 3DExperience Platform in a browser and signs into the User Communities section of the application.
         driver.get(TEST_URL);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(TEST_USER, TEST_PASS);
 
+        // 2. Wait for the first couple of posts to load.
         Wait<WebDriver> wait = WaitFactory.Create(driver);
-        wait.until(driver -> {
-            Community userCommunity = new Community(driver);
-            return userCommunity.posts().size() > 0;
-        });
+        wait.until(driver -> !new Community(driver).posts().isEmpty());
 
-        Community userCommunity = new Community(driver);
-        List<CommunityPost> posts = userCommunity.posts();
-
-        assertThat(posts.size()).isGreaterThan(1);
-
-        // Candidate challenge below
+        // TODO: Candidate challenge below
+        // 3. Keeping scrolling the browser downward until at least 20 posts have loaded in the forum.
         int maxPostSize = 20;
-        int scrollAmount = 500;
-        String filePath = "titles.txt";
 
-        // TODO
+        // 4. Verify that the title of each post contains text (is not empty).
+
+        // 5. Write the titles of all the posts that are loaded to a text file called "titles.txt"
+        String filePath = "titles.txt";
     }
 }
