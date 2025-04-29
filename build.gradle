@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.seleniumhq.selenium:selenium-java:4.31.0")
+    testImplementation("org.assertj:assertj-core:3.27.3")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.12.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("io.github.bonigarcia:webdrivermanager:6.1.0")
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'TEST_URL', project.findProperty('TEST_URL')
+    systemProperty 'TEST_USER', project.findProperty('TEST_USER')
+    systemProperty 'TEST_PASS', project.findProperty('TEST_PASS')
+    systemProperty 'LONG_WAIT', project.findProperty('LONG_WAIT')
+    systemProperty 'WAIT_INTERVAL', project.findProperty('WAIT_INTERVAL')
+}
